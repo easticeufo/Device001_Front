@@ -1,0 +1,56 @@
+<div style="padding-bottom: 4rem">
+    <!-- 设备提示消息对话框 -->
+    <script type="text/ng-template" id="devicePromptModal.html">
+        <div class="panel panel-info" ng-repeat="prompt in prompts">
+            <div class="panel-heading">
+                <h3 class="panel-title">{{prompt.title}}</h3>
+            </div>
+            <div class="panel-body">
+                {{prompt.content}}
+            </div>
+            <div class="panel-footer">
+                活动时间:<br>
+                {{prompt.startTime | date:"yyyy-MM-dd HH:mm:ss"}}至{{prompt.stopTime | date:"yyyy-MM-dd HH:mm:ss"}}
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="confirm()">我知道了</button>
+        </div>
+    </script>
+
+    <div class="background-white" style="padding: 0.2rem 0.6rem">
+        <div>{{device.area + device.location}}</div>
+        <div><small class="gray">编号:{{device.code}}</small></div>
+        <div class="line"></div>
+        <div >
+            客服电话:<span class="red">{{device.serviceNumber}}</span>
+        </div>
+    </div>
+    <div class="plug-wrapper" ng-show="device.isOnline">
+        <div ng-repeat="plug in plugs" ng-click="selectPlug(plug)">
+            <plug plug-id="plug.id" is-free="plug.status=='F'" busy-text="正在充电..."></plug>
+        </div>
+    </div>
+    <div ng-hide="device.isOnline">
+        <span class="red">该设备不在线</span>
+    </div>
+
+    <div class="charge-explain">
+        <h5>收费说明</h5>
+        <div class="line"></div>
+        <p ng-hide="isTimeDevice">
+            按充电量收费<br>
+            根据充电所消耗的电量来收费,充多少电算多少钱,剩余的钱退回到您的账户余额中,若花费达到充电限额则停止充电!
+        </p>
+        <p ng-show="isTimeDevice">
+            按时间收费<br>
+            {{(device.unitPrice / 60) | number:1}}小时/元
+        </p>
+    </div>
+    <div class="fixed-bottom plugs-footer">
+        <div class="col-xs-6">
+            <a ui-sref="mine"><img style="height:2rem" ng-src="imgs/mine.png"></a><br>
+            <small>我的</small>
+        </div>
+    </div>
+</div>

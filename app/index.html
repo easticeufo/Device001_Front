@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="device001App">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- 防止IOS手机在微信浏览器下自动将数字转化为加链接的样式导致angularjs某些更新数据状态的异常效果 -->
+    <meta name="format-detection" content="telephone=no,email=no">
+
+    <title ng-bind="title">云支付供电站</title>
+
+    <link href="framework/css/bootstrap.min.css" rel="stylesheet">
+    <link href="framework/css/font-awesome.min.css" rel="stylesheet">
+    <link href="framework/css/loading-bar.min.css" rel="stylesheet" type="text/css" media="all">
+    <link href="framework/css/libs.min.css" rel="stylesheet"> <!--给loading-bar使用?-->
+
+    <link href="common.css?v=2" rel="stylesheet">
+    <link href="app.css?v=2" rel="stylesheet">
+    <link href="modules/user-login/user-login.css?v=2" rel="stylesheet">
+    <link href="modules/plug/plug.css?v=2" rel="stylesheet">
+
+</head>
+
+<body>
+
+<ui-view>
+    正在加载页面...
+</ui-view>
+
+<script src="framework/js/jquery-1.11.3.min.js"></script>
+<script src="framework/js/angular.min.js"></script>
+<script src="framework/js/angular-resource.min.js"></script>
+<script src="framework/js/angular-ui-router.min.js"></script>
+<script src="framework/js/loading-bar.min.js"></script>
+<script src="framework/js/ui-bootstrap-tpls-2.3.0.min.js"></script>
+<script src="framework/js/ng-infinite-scroll.min.js"></script>
+
+<script src="http://api.map.baidu.com/api?v=2.0&ak=0UMHSAnTjrNVujOMWV5SuOsEgXn1pNPC"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+
+<script src="modules/user-login/user-login.module.js?v=2"></script>
+<script src="modules/plug/plug.module.js?v=2"></script>
+
+<script src="app.js?v=2"></script>
+<script src="services.js?v=2"></script>
+<script src="controllers.js?v=2"></script>
+<script src="filters.js?v=2"></script>
+
+</body>
+</html>

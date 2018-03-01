@@ -1,0 +1,136 @@
+<div class="container-fluid plugCharges">
+    <!-- 充电详细信息对话框 -->
+    <script type="text/ng-template" id="lastChargeRecordDetailModal.html">
+        <div class="modal-header">
+            <h4>上次充电详细信息</h4>
+        </div>
+        <div class="modal-body">
+            <span>编号:{{lastChargeRecord.device.code}}</span><br>
+            <span>名称:{{lastChargeRecord.device.area+lastChargeRecord.device.location}}</span><br>
+            <span>插座位置:{{lastChargeRecord.plugId}}</span><br>
+            <span>充电起始时间:{{lastChargeRecord.startTime | date:"yyyy-MM-dd HH:mm:ss"}}</span><br>
+            <span>充电结束时间:{{lastChargeRecord.stopTime | date:"yyyy-MM-dd HH:mm:ss"}}</span><br>
+            <span>充电持续时间:{{duration | durationTime}}</span><br>
+            <span>花费:{{lastChargeRecord.amount/100}}元</span><br>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="cancel()">关闭</button>
+        </div>
+    </script>
+
+    <!-- 用户选择充电扣费方式对话框 -->
+    <script type="text/ng-template" id="chooseChargeModeModal.html">
+        <div class="modal-header">
+            <h4>请选择扣费方式</h4>
+        </div>
+        <div class="modal-body">
+            <div>
+                <input type="radio" ng-model="charge.mode" value="1">账户余额(当前余额:{{custom.balance/100}}元)
+            </div>
+            <div>
+                <input type="radio" ng-model="charge.mode" value="2">直接支付
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-default" ng-click="confirm()">确定</button>
+            <button type="button" class="btn btn-default" ng-click="cancel()">关闭</button>
+        </div>
+    </script>
+
+    <div class="row">
+        <img style="width:100%" ng-src="imgs/ad1.png">
+    </div>
+    <div class="row">
+        <div class="col-xs-3">编号:</div>
+        <div class="col-xs-9">{{device.code}}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">名称:</div>
+        <div class="col-xs-9">{{device.area + device.location}}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-3">位置:</div>
+        <div class="col-xs-9">{{plugId}}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">用户账号:</div>
+        <div class="col-xs-8">{{custom.nickname}}</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">账户余额:</div>
+        <div class="col-xs-4">{{custom.balance/100}}元</div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="row" ng-hide="isTimeDevice">
+        <div class="col-xs-3" style="padding-right: 0">
+            <sapn>充电限额:</sapn>
+        </div>
+        <div class="col-xs-2" style="padding-right: 0"><input type="radio" value="2" name="limit" ng-model="limitPrice">2元</div>
+        <div class="col-xs-2" style="padding-right: 0"><input type="radio" value="5" name="limit" ng-model="limitPrice">5元</div>
+        <div class="col-xs-5" style="padding-right: 0">
+            <input type="radio" name="limit" value="0" ng-model="limitPrice">自定义:
+            <input style="width: 30%" ng-disabled="limitPrice != '0'" type="number" ng-min="minPrice" ng-max="maxPrice" ng-model="customLimitPrice">元
+        </div>
+        <div class="col-xs-12">
+            <p class="red">充电限额为本次充电的预付金额,充电结束时会将余额退回到账户中,可在下次充电时使用!</p>
+        </div>
+    </div>
+    <div class="row" ng-show="isTimeDevice">
+        <div class="col-xs-12">
+            <sapn>充电金额:</sapn>
+        </div>
+        <div class="col-xs-3">
+            <input type="radio" ng-value="minPrice" ng-model="limitPrice" name="limitTime">
+            {{minPrice | number:2}}元<br>{{minTime | number:1}}小时
+        </div>
+        <div class="col-xs-3">
+            <input type="radio" ng-value="minPrice*2" ng-model="limitPrice" name="limitTime">
+            {{minPrice*2 | number:2}}元<br>{{minTime*2 | number:1}}小时
+        </div>
+        <div class="col-xs-3">
+            <input type="radio" ng-value="minPrice*3" ng-model="limitPrice" name="limitTime">
+            {{minPrice*3 | number:2}}元<br>{{minTime*3 | number:1}}小时
+        </div>
+        <div class="col-xs-3">
+            <input type="radio" ng-value="minPrice*4" ng-model="limitPrice" name="limitTime">
+            {{minPrice*4 | number:2}}元<br>{{minTime*4 | number:1}}小时
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <span>上次充电信息:</span>
+        </div>
+    </div>
+    <div class="row" ng-show="displayLastRecord">
+        <div class="col-xs-4">{{duration | durationTime}}</div>
+        <div class="col-xs-4">{{lastChargeRecord.amount / 100}}元</div>
+        <div class="col-xs-4">
+            <button type="button" class="btn btn-primary btn-sm" ng-click="recordDetail()">详细信息</button>
+        </div>
+    </div>
+    <div class="row" ng-hide="displayLastRecord">
+        <div class="col-xs-12 red">无</div>
+    </div>
+    <div class="row">
+        <div class="fixed-bottom col-xs-12" style="padding-bottom: 10px">
+            <button type="button" class="btn btn-primary btn-block" ng-click="buttonDisabled || doCharge()">
+                开始充电
+            </button>
+        </div>
+    </div>
+    <div id="loading-bar-container"></div>
+</div>

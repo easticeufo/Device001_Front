@@ -1,0 +1,18 @@
+<div infinite-scroll="loadRecord()" infinite-scroll-disabled="loadBusy">
+    <table class="table table-bordered table-striped table-condensed">
+        <tr class="info">
+            <th>设备编号<br>设备名称</th>
+            <th>位置</th>
+            <th>开始时间<br>结束时间</th>
+            <th>持续时间</th>
+            <th>花费</th>
+        </tr>
+        <tr ng-repeat="record in chargeRecords">
+            <td>{{record.device.code}}<br>{{record.device.area + record.device.location}}</td>
+            <td>{{record.plugId}}</td>
+            <td>{{record.startTime | date: "yyyy-MM-dd HH:mm:ss"}}<br>{{record.stopTime | date: "yyyy-MM-dd HH:mm:ss"}}</td>
+            <td>{{(record.stopTime - record.startTime) / 1000 | durationTime}}</td>
+            <td>{{record.amount / 100}}元</td>
+        </tr>
+    </table>
+</div>

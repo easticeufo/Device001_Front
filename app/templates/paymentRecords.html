@@ -1,0 +1,14 @@
+<div infinite-scroll="loadRecord()" infinite-scroll-disabled="loadBusy">
+    <table class="table table-bordered table-striped table-condensed">
+        <tr class="info">
+            <th>时间</th>
+            <th>金额(元)</th>
+            <th>余额(元)</th>
+        </tr>
+        <tr ng-repeat="record in paymentRecords">
+            <td>{{record.time | date: "yyyy-MM-dd HH:mm:ss"}}</td>
+            <td>{{record.amount / 100}}</td>
+            <td>{{record.balance / 100}}</td>
+        </tr>
+    </table>
+</div>

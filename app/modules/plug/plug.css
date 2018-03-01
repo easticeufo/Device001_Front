@@ -1,0 +1,68 @@
+.plug-box-free
+{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url("imgs/plug_bg_free.png");
+    background-size: 100% 100%;
+    color: #4A80CA;
+}
+
+.plug-box-busy
+{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url("imgs/plug_bg_busy.png");
+    background-size: 100% 100%;
+    color: #f49231;
+}
+
+.plug-number
+{
+    position: absolute;
+    top: -0.8rem;
+    width: 100%;
+    text-align: center;
+    font-size: 1rem;
+}
+
+.plug-number-busy
+{
+    background-image: url("imgs/plug_use.gif");
+    background-size: auto 95%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.plug-image
+{
+    position: absolute;
+    top: 0.9rem;
+    width: 100%;
+    height: 1.6rem;
+    text-align: center;
+}
+
+.plug-image>img
+{
+    height: 100%;
+}
+
+.plug-busy-text
+{
+    position: absolute;
+    top: 1.1rem;
+    width: 100%;
+    font-size: 0.75rem;
+    text-align: center;
+}
+
+.plug-state
+{
+    position: absolute;
+    bottom: -0.5rem;
+    width: 100%;
+    text-align: center;
+    font-size: 0.72rem;
+}

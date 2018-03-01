@@ -1,0 +1,30 @@
+<div>
+    <em ng-show="currentCharges.length == 0">
+        当前没有您正在充电的信息
+    </em>
+    <div class="panel panel-success" ng-repeat="currentCharge in currentCharges">
+        <div class="panel-heading">
+            {{currentCharge.device.code}}&nbsp;
+            {{currentCharge.device.area + currentCharge.device.location}}
+            {{currentCharge.plugId}}号插座&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="btn btn-sm btn-info" type="button" ng-click="stopCharge(currentCharge)">停止充电</button>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">
+                开始时间:&nbsp;{{currentCharge.startTime | date: "yyyy-MM-dd HH:mm:ss"}}
+            </li>
+            <li class="list-group-item">
+                充电限额:&nbsp;{{currentCharge.limitPrice / 100}}元
+            </li>
+            <li class="list-group-item">
+                当前花费:&nbsp;{{currentCharge.moneyConsumption / 100}}元
+            </li>
+            <li class="list-group-item">
+                当前功率:&nbsp;{{currentCharge.power}}瓦
+            </li>
+            <li class="list-group-item">
+                状态更新时间:&nbsp;{{currentCharge.updateTime | date: "yyyy-MM-dd HH:mm:ss"}}
+            </li>
+        </ul>
+    </div>
+</div>

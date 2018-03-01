@@ -1,0 +1,144 @@
+html
+{
+    height: 100%;
+    font-size: 16px;
+}
+
+body
+{
+    height: 100%;
+    background-color: #EFEFEF;
+    line-height: 1.6;
+}
+
+.plug-wrapper
+{
+    padding-top: 1.25rem;;
+    padding-left: 2%;
+    margin-top: 0.8rem;
+    background-color: white;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.plug-wrapper > div
+{
+    width: 23%;
+    margin-right: 2%;
+    margin-bottom: 1.25rem;
+    height: 3.5rem;
+}
+
+.charge-explain
+{
+    margin-top: 0.8rem;
+    padding: 0.2rem 0.6rem;
+    background-color: white;
+    color: #5C5C5C;
+}
+
+.plugs-footer{
+    text-align: center;
+    color: #5C5C5C;
+    background-color: white;
+    padding-top: 0.3rem;
+    width: 100%;
+}
+
+.mine-container
+{
+    background-color: white;
+    padding-left: 0.6rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    color: #5C5C5C;
+}
+
+.mine-click-box
+{
+    display: flex;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.charge{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.plugCharges>div{
+    margin-bottom: 10px;
+}
+
+.plugCharges{
+    background-color: white;
+    padding-bottom: 30px;
+}
+
+.paymentButton{
+    border-radius: 7%;
+    border: solid 1px gray;
+    width: 100%;
+    background-color: lightgoldenrodyellow;
+    margin: 5px;
+    text-align: center;
+    color: blue;
+    font-family: serif;
+    font-size: 12px;
+    line-height: 120%;
+    padding-top: 10px;
+}
+
+.plugChooseButton{
+    width: 100%;
+    height: 30px;
+}
+
+.payment
+{
+    background-color: white;
+    height: 100%;
+}
+
+.payment>div{
+    margin-bottom: 10px;
+}
+
+#loading-bar-container img{
+    position: fixed;
+    top: 25%;
+    left: 5%;
+    width: 90%;
+}
+
+.reserveInfo>.info{
+    color: darkgray;
+    border: solid 1px darkgray;
+}
+
+.reserveOnline input{
+    width: 100%;
+    background-color: lightgray;
+}
+
+.reserveOnline #chooseInfo>div{
+    margin-top: 4px;
+    margin-bottom: 4px;
+    font-size: 14px;
+}
+
+.reserveOnline #datepicker{
+    margin-top: 20px;
+}
+
+.reserveDevice select{
+    width: 100%;
+}
+
+.reserved button span {
+    background-color: orange;
+    border-radius: 32px;
+    color: black;
+}

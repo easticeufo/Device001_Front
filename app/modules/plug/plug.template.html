@@ -1,0 +1,14 @@
+<div ng-class="{true:'plug-box-free', false:'plug-box-busy'}[isFree]">
+    <div class="plug-number" ng-class="{'plug-number-busy':!isFree}">
+        <span>{{plugIdStr}}</span>
+    </div>
+    <div class="plug-image" ng-show="isFree">
+        <img src="modules/plug/imgs/plug.png">
+    </div>
+    <div class="plug-busy-text" ng-show="!isFree">
+        {{busyText}}
+    </div>
+    <div class="plug-state">
+        <span>{{state}}</span>
+    </div>
+</div>

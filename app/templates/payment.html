@@ -1,0 +1,30 @@
+<div class="container-fluid payment">
+    <div class="row">
+        <img style="width:100%" ng-src="imgs/payLogo.png">
+    </div>
+    <div class="row">
+        <div class="col-xs-4">用户账号:</div>
+        <div class="col-xs-4">{{custom.nickname}}</div>
+        <div class="col-xs-4"><a ui-sref="paymentRecords" class="btn btn-default btn-sm">充值记录</a></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">账户余额:</div>
+        <div class="col-xs-4">{{custom.balance/100}}元</div>
+        <div class="col-xs-4"><a ui-sref="chargeRecords" class="btn btn-default btn-sm">充电记录</a></div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="line"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div ng-repeat="paymentOption in paymentOptions" class="col-xs-4">
+            <div class="paymentButton" ng-click="buttonDisabled || doPayment(paymentOption.payAmount)">
+                <span style="font-size: 150%">{{paymentOption.payAmount / 100}}元</span><br>
+                <span ng-hide="paymentOption.giftAmount == 0">送{{paymentOption.giftAmount / 100}}元电费</span><br>
+                <br>
+            </div>
+        </div>
+    </div>
+    <div id="loading-bar-container"></div>
+</div>

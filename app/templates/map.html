@@ -1,0 +1,8 @@
+<div>
+    <div id="map-container" style="width: 100%;height: 300px;"></div>
+    <div class="list-group">
+        <a class="list-group-item" ng-repeat="device in devices" ui-sref="devicePlugs({deviceCode:device.code})">
+            {{device.code}}&nbsp;{{device.area + device.location}}(大约{{device.distance}}米)
+        </a>
+    </div>
+</div>

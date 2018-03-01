@@ -1,0 +1,39 @@
+<div>
+    <div class="mine-container">
+        <div class="mine-click-box">
+            <img style="height:64px" ng-src="{{custom.headImgUrl}}">
+            <span style="padding-left: 0.6rem">{{custom.nickname}}(id:{{custom.id}})</span>
+        </div>
+    </div>
+
+    <div class="mine-container">
+        <div class="mine-click-box" ng-click="goToPayment()">
+            <img style="height:32px;" ng-src="imgs/pay.png">
+            <span style="padding-left: 0.6rem">我要充值(余额: {{custom.balance/100 | number:2}}元)</span>
+            <div style="text-align: right;position: absolute;right: 0.6rem">
+                <i class="icon-angle-right icon-large gray"></i>
+            </div>
+        </div>
+    </div>
+
+    <div class="mine-container">
+        <div class="mine-click-box" ui-sref="currentCharges">
+            <img style="height:32px;" ng-src="imgs/charge.png">
+            <span style="padding-left: 0.6rem">正在充电</span>
+            <div style="text-align: right;position: absolute;right: 0.6rem">
+                <i class="icon-angle-right icon-large gray"></i>
+            </div>
+        </div>
+
+        <div class="line"></div>
+
+        <div class="mine-click-box" ui-sref="billRecords">
+            <img style="height:32px;" ng-src="imgs/bill.png">
+            <span style="padding-left: 0.6rem">我的账单</span>
+            <div style="text-align: right;position: absolute;right: 0.6rem">
+                <i class="icon-angle-right icon-large gray"></i>
+            </div>
+        </div>
+
+    </div>
+</div>
