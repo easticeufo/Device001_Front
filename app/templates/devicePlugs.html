@@ -28,7 +28,7 @@
     </div>
     <div class="plug-wrapper" ng-show="device.isOnline">
         <div ng-repeat="plug in plugs" ng-click="selectPlug(plug)">
-            <plug plug-id="plug.id" is-free="plug.status=='F'" busy-text="正在充电..."></plug>
+            <plug plug-id="plug.id" ng-hide="plug.status=='E'" is-free="plug.status=='F'" busy-text="正在充电..."></plug>
         </div>
     </div>
     <div ng-hide="device.isOnline">
