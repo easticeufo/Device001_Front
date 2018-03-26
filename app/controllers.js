@@ -137,7 +137,7 @@ device001AppCtrls.controller("DevicePlugChargeController", ["$scope", "$statePar
         $scope.plugId = $stateParams.plugId;
         $scope.limitPrice = "2";
         $scope.minPrice = 0.01;
-        $scope.maxPrice = 5;
+        $scope.maxPrice = 10;
         $scope.isTimeDevice = false;
 
         $scope.device = ApiDevice.get({deviceCode:$stateParams.deviceCode},
@@ -660,6 +660,12 @@ device001AppCtrls.controller("MapController", ["$scope", "ApiDevice", "ApiWechat
 ]);
 
 device001AppCtrls.controller("ChargeStartController", ["$scope",
+    function ($scope)
+    {
+    }
+]);
+
+device001AppCtrls.controller("SubscribePageController", ["$scope",
     function ($scope)
     {
     }

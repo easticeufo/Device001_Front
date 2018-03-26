@@ -84,6 +84,11 @@ device001App.config(["$stateProvider", "$urlRouterProvider", "$locationProvider"
                 url: "/chargeStart",
                 templateUrl: "templates/chargeStart.html",
                 controller: "ChargeStartController"
+            })
+            .state("subscribePage", {
+                url: "/subscribePage",
+                templateUrl: "templates/subscribePage.html",
+                controller: "SubscribePageController"
             });
     }
 ]);
