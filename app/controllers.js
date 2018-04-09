@@ -39,25 +39,25 @@ device001AppCtrls.controller("DevicePlugsController", ["$scope", "$stateParams",
         ApiMine.getCurrentCharges(
             function (data)
             {
-                if (data.length > 0)
-                {
-                    if (confirm("您已经有插座正在充电,是否停止正在充电的插座?"))
-                    {
-                        for (var i = 0; i < data.length; i++)
-                        {
-                            var currentCharge = data[i];
-                            ApiDevicePlug.stopCharge(
-                                {deviceCode:currentCharge.device.code, plugId:currentCharge.plugId},
-                                null,
-                                function (data) {},
-                                function (response)
-                                {
-                                    $scope.errorInfo = response.data.returnMsg;
-                                }
-                            );
-                        }
-                    }
-                }
+                //if (data.length > 0)
+                //{
+                //    if (confirm("您已经有插座正在充电,是否停止正在充电的插座?"))
+                //    {
+                //        for (var i = 0; i < data.length; i++)
+                //        {
+                //            var currentCharge = data[i];
+                //            ApiDevicePlug.stopCharge(
+                //                {deviceCode:currentCharge.device.code, plugId:currentCharge.plugId},
+                //                null,
+                //                function (data) {},
+                //                function (response)
+                //                {
+                //                    $scope.errorInfo = response.data.returnMsg;
+                //                }
+                //            );
+                //        }
+                //    }
+                //}
             },
             function (response) {
                 alert(response.data.returnMsg);
